@@ -14,12 +14,11 @@ def call(body) {
                     echo "hello"
                 }
             }
-            
+        }
       post {
 	        always {
                 mattermostNotify(currentBuild.currentResult)
             }
         }
-     }
-   }
+    }
 }
