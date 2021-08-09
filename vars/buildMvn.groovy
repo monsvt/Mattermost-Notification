@@ -20,5 +20,6 @@ def call(body) {
                 mattermostNotify(currentBuild.currentResult)
             }
         }
-}
+     }
+   }
 }
