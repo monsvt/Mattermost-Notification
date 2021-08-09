@@ -1,4 +1,4 @@
-def call(body) {
+def call() {
     node {
         stage('Checkout and set agent'){
 
