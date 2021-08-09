@@ -1,11 +1,4 @@
 def call() {
-    node {
-        stage('Checkout and set agent'){
-
-            echo "found the agentLabel value"
-        }
-    }
-
     pipeline {
         agent any
         stages {
