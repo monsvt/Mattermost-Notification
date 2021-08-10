@@ -1,34 +1,16 @@
 @Library('shared-lib') _
-pipeline{
-    agent any
-    stages{
-        stage('Validate'){
-            steps{
-                sh 'mvn validate'
+    pipeline {
+        agent any
+        stages {
+            stage("echo hello") {
+                steps {
+                    echo "hello"
+                }
             }
         }
-        stage('Clean'){
-            steps{
-                sh 'mvn clean'
-            }
-        }
-        stage('Lint Code'){
-            steps{
-                sh 'mvn checkstyle:check'
-            }
-        }
-        stage('Unit Test'){
-            steps{
-                sh 'mvn test'
-        }
-
-        }
-
-        stage('Mattermost notification') {
-	        steps {
+      post {
+	        always {
                 mattermostNotify(currentBuild.currentResult)
             }
         }
-      
     }
-}
