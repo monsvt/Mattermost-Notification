@@ -1,17 +1,9 @@
-def call() {
-    pipeline {
-        agent any
-        stages {
-            stage("echo parameters") {
-                steps {
-                    echo "hello"
-                }
-            }
-        }
-      post {
-	        always {
-                mattermostNotify(currentBuild.currentResult)
-            }
-        }
+def call(config){
+    try{
+        println("[INFO] Build MAVEN Project:")
+        sh "mvn -B clean install"
+    }
+    catch(Exeption e){
+        println("[ERROR] While running MAVEN Build: ${e}")
     }
 }
