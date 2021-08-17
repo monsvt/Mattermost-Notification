@@ -2,9 +2,9 @@
     pipeline {
         agent any
         stages {
-            stage("echo hello") {
+            stage("Build") {
                 steps {
-                    echo "hello"
+                    buildMvn()
                 }
             }
         }
