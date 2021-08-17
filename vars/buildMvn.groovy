@@ -3,7 +3,7 @@ def call(config){
         println("[INFO] Build MAVEN Project:")
         sh "mvn -B clean install"
     }
-    catch(Exeption e){
+    catch(Exception e){
         println("[ERROR] While running MAVEN Build: ${e}")
     }
 }
